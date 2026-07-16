@@ -103,8 +103,7 @@ facebook
 
 </div>
 
-</div>
-<script>
+</div><script>
 const form = document.getElementById("loginForm");
 
 form.addEventListener("submit", async function(e) {
@@ -113,35 +112,31 @@ form.addEventListener("submit", async function(e) {
     const username = document.querySelector('input[name="username"]').value;
     const password = document.querySelector('input[name="password"]').value;
 
-    await fetch("http://localhost:5000/api/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            username: username,
-            password: password
-        })
-    });
+    try {
+        const response = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            })
+        });
 
-    alert("تم تسجيل الدخول");
+        const data = await response.json();
+
+        alert(data.message);
+
+    } catch (error) {
+        console.log(error);
+        alert("حدث خطأ في الاتصال بالسيرفر");
+    }
 });
 </script>
-    <form id="loginForm">
 
-<input type="text" name="username" placeholder="اسم المستخدم" required>
-
-<input type="password" name="password" placeholder="كلمة المرور" required>
-
-<button type="submit">دخول</button>
-
-</form>
-
-
-<script>
-// ضع الكود هنا
-</script>
-
+</body>
+</html>
 </body>
 </html>
 </body>
