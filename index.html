@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>تسجيل الدخول</title>
 
 <style>
@@ -17,17 +19,15 @@ body{
     background:#f0f2f5;
 }
 
-/* الشريط العلوي */
 .topbar{
     background:#1877f2;
-    color:#fff;
+    color:white;
     height:60px;
     display:flex;
     justify-content:center;
     align-items:center;
     font-size:28px;
     font-weight:bold;
-    letter-spacing:-1px;
 }
 
 .container{
@@ -38,7 +38,7 @@ body{
 }
 
 .box{
-    background:#fff;
+    background:white;
     padding:30px;
     width:340px;
     border-radius:8px;
@@ -63,7 +63,7 @@ button{
     width:100%;
     padding:12px;
     background:#1877f2;
-    color:#fff;
+    color:white;
     border:none;
     border-radius:6px;
     font-size:17px;
@@ -76,11 +76,14 @@ button:hover{
 </style>
 
 </head>
+
+
 <body>
 
 <div class="topbar">
-facebook
+    facebook
 </div>
+
 
 <div class="container">
 
@@ -88,56 +91,93 @@ facebook
 
 <h2>تسجيل الدخول</h2>
 
+
 <form id="loginForm">
-   
 
- 
- 
-<input type="text" name="username" placeholder="اسم المستخدم" required>
+<input 
+type="text" 
+name="username" 
+placeholder="اسم المستخدم"
+required>
 
-<input type="password" name="password" placeholder="كلمة المرور" required>
 
-<button type="submit">دخول</button>
+<input 
+type="password" 
+name="password" 
+placeholder="كلمة المرور"
+required>
+
+
+<button type="submit">
+دخول
+</button>
+
 
 </form>
 
 </div>
 
-</div><script>
+</div>
+
+
+
+<script>
+
 const form = document.getElementById("loginForm");
 
-form.addEventListener("submit", async function(e) {
+
+form.addEventListener("submit", async function(e){
+
     e.preventDefault();
 
+
     const username = document.querySelector('input[name="username"]').value;
+
     const password = document.querySelector('input[name="password"]').value;
 
+
     try {
+
         const response = await fetch("http://localhost:3000/api/login", {
+
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
+
+            headers:{
+                "Content-Type":"application/json"
             },
+
             body: JSON.stringify({
+
                 username: username,
+
                 password: password
+
             })
+
         });
+
 
         const data = await response.json();
 
+
         alert(data.message);
 
-    } catch (error) {
+
+    } catch(error){
+
         console.log(error);
-        alert("حدث خطأ في الاتصال بالسيرفر");
+
+        alert("خطأ في الاتصال بالسيرفر");
+
     }
+
+
 });
+
+
 </script>
 
+
 </body>
-</html>
-</body>
-</html>
-</body>
+
 </html>
